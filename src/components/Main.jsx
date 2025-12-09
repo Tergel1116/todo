@@ -20,7 +20,13 @@ export const Main = () => {
           className=" w-[280px] outline-solid px-[16px] outline-[#e4e4e7] rounded-[6px]"
         />
 
-        <button className="w-[59px] border-none cursor-pointer text-[14px] text-[#f9f9f9] rounded-[6px] bg-[#3c82f6] ">
+        <button
+          className="w-[59px] border-none cursor-pointer text-[14px] text-[#f9f9f9] rounded-[6px] bg-[#3c82f6] "
+          onClick={() => {
+            addTask(value);
+            setValue("");
+          }}
+        >
           Add
         </button>
       </div>
