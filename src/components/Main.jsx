@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
-export const Main = () => {
+export const Main = ({ addTask }) => {
   const [value, setValue] = useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
-  console.log(value);
 
   return (
     <div>
