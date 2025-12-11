@@ -14,12 +14,12 @@ export const Task = ({ tasks, toggleComplete, deleteTask }) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+          className="flex justify-between items-center duration-300 bg-gray-50 hover:cursor-pointer hover:bg-gray-100 px-3 py-4 rounded"
         >
           <div className="flex gap-4 items-center">
             <input
               type="checkbox"
-              className="size-5"
+              className="size-5 hover:cursor-pointer"
               checked={task.completed}
               onChange={() => toggleComplete(task.id)}
               //   onClick={() => toggleComplete(task.id)}
@@ -34,7 +34,7 @@ export const Task = ({ tasks, toggleComplete, deleteTask }) => {
             </span>
           </div>
           <button
-            className="text-red-500 bg-red-50 py-1 px-2 text-[16px] rounded-[6px]"
+            className="text-red-500 bg-red-50 py-1 px-2 text-[16px] rounded-[6px] hover:cursor-pointer"
             onClick={() => deleteTask(task.id)}
           >
             Delete

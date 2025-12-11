@@ -15,6 +15,14 @@ export const Home = () => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
+    confirm("Are you sure want to delete this task?");
+  };
+
+  const deleteAll = () => {
+    setTasks(tasks.filter((task) => !task.completed));
+    if (setTasks.length === 0) {
+      alert("Are you sure want to clear all completed tasks?");
+    }
   };
 
   const toggleComplete = (id) => {
@@ -44,8 +52,8 @@ export const Home = () => {
                 />
               </div>
             </div>
-            <div className="relative mt-14 left-26">
-              <Footer />
+            <div className="relative mt-14 ">
+              <Footer deleteAll={deleteAll} tasks={tasks} />
             </div>
           </div>
         </div>
