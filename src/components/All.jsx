@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-export const All = () => {
-  const [filter, setFilter] = useState("all");
+export const All = ({ filter, setFilter }) => {
   return (
     <div className="flex gap-[10px] mr-[150px]">
       <button

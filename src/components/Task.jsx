@@ -22,7 +22,6 @@ export const Task = ({ tasks, toggleComplete, deleteTask }) => {
               className="size-5 hover:cursor-pointer"
               checked={task.completed}
               onChange={() => toggleComplete(task.id)}
-              //   onClick={() => toggleComplete(task.id)}
             />
             <span
               className={`cursor-pointer ${

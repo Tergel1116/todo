@@ -10,7 +10,11 @@ export const Home = () => {
   const [filter, setFilter] = useState("all");
 
   const addTask = (text) => {
-    setTasks([...tasks, { id: Date.now(), text: text, completed: false }]);
+    if (text.length === 0) {
+      alert("please enter a task");
+    } else {
+      setTasks([...tasks, { id: Date.now(), text: text, completed: false }]);
+    }
   };
 
   const deleteTask = (id) => {
@@ -18,11 +22,14 @@ export const Home = () => {
     confirm("Are you sure want to delete this task?");
   };
 
+  const filteredTask = tasks.filter((item) => {
+    if (filter === "active") return !item.completed;
+    if (filter === "completed") return item.completed;
+    return item;
+  });
+
   const deleteAll = () => {
     setTasks(tasks.filter((task) => !task.completed));
-    if (setTasks.length === 0) {
-      alert("Are you sure want to clear all completed tasks?");
-    }
   };
 
   const toggleComplete = (id) => {
@@ -45,7 +52,7 @@ export const Home = () => {
 
               <div className="relative left-17">
                 <Task
-                  tasks={tasks}
+                  tasks={filteredTask}
                   deleteTask={deleteTask}
                   toggleComplete={toggleComplete}
                   filter={filter}

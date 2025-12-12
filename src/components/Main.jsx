@@ -7,6 +7,13 @@ export const Main = ({ addTask }) => {
     setValue(event.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      addTask(text);
+      setTask("");
+    }
+  };
+
   return (
     <div>
       <div className="h-[40px] flex gap-[8px]">
@@ -20,6 +27,8 @@ export const Main = ({ addTask }) => {
 
         <button
           className="w-[59px] border-none cursor-pointer text-[14px] text-[#f9f9f9] rounded-[6px] bg-[#3c82f6] "
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
           onClick={() => {
             addTask(value);
             setValue("");
